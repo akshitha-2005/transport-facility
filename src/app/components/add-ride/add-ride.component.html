@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="addRide()">
+  <label>Employee ID*</label>
+  <input formControlName="ownerEmployeeId" />
+
+  <label>Vehicle Type*</label>
+  <select formControlName="vehicleType">
+    <option value="Car">Car</option>
+    <option value="Bike">Bike</option>
+  </select>
+
+  <label>Vehicle No*</label>
+  <input formControlName="vehicleNo" />
+
+  <label>Vacant Seats*</label>
+  <input type="number" formControlName="vacantSeats" min="1" />
+
+  <label>Time*</label>
+  <input type="time" formControlName="time" />
+
+  <label>Pick-up Point*</label>
+  <input formControlName="pickupPoint" />
+
+  <label>Destination*</label>
+  <input formControlName="destination" />
+
+  <button type="submit">Add Ride</button>
+
+  <p class="success" *ngIf="successMsg">{{ successMsg }}</p>
+  <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+</form>
