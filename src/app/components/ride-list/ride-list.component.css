@@ -1,0 +1,25 @@
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.ride-list {
+  list-style: none;
+  padding: 0;
+}
+.ride-list li {
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.ride-list li.selected {
+  background: #e7f0ff;
+}
+.booking-section {
+  margin-top: 12px;
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+}

@@ -1,0 +1,39 @@
+<div class="filters">
+  <label>Vehicle Type</label>
+  <select
+    formControlName="vehicleType"
+    [formGroup]="filterForm"
+    (change)="refresh()"
+  >
+    <option value="">All</option>
+    <option value="Car">Car</option>
+    <option value="Bike">Bike</option>
+  </select>
+
+  <label>Reference Time</label>
+  <input
+    type="time"
+    formControlName="referenceTime"
+    [formGroup]="filterForm"
+    (change)="refresh()"
+  />
+</div>
+
+<ul class="ride-list">
+  <li
+    *ngFor="let r of rides"
+    (click)="selectRide(r)"
+    [class.selected]="selectedRide?.id === r.id"
+  >
+    <p>
+      <strong>{{ r.time }}</strong> | {{ r.vehicleType }} ({{ r.vehicleNo }})
+    </p>
+    <p>{{ r.pickupPoint }} → {{ r.destination }}</p>
+    <p>Vacant Seats: {{ r.vacantSeats }}</p>
+  </li>
+</ul>
+
+<div *ngIf="selectedRide" class="booking-section">
+  <h3>Book Ride</h3>
+  <app-pick-ride [ride]="selectedRide" (booked)="refresh()"></app-pick-ride>
+</div>
