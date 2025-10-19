@@ -1,0 +1,16 @@
+<div>
+  <p>
+    <strong>{{ ride.pickupPoint }}</strong>
+    <strong>{{ ride.destination }}</strong>
+  </p>
+  <p>Time: {{ ride.time }} | Vacant Seats: {{ ride.vacantSeats }}</p>
+
+  <form [formGroup]="form" (ngSubmit)="bookRide()">
+    <label>Employee ID*</label>
+    <input formControlName="employeeId" />
+    <button type="submit">Book Ride</button>
+  </form>
+
+  <p class="success" *ngIf="message">{{ message }}</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>
