@@ -1,23 +1,14 @@
-<div class="filters">
+<form [formGroup]="filterForm" class="filters">
   <label>Vehicle Type</label>
-  <select
-    formControlName="vehicleType"
-    [formGroup]="filterForm"
-    (change)="refresh()"
-  >
+  <select formControlName="vehicleType" (change)="refresh()">
     <option value="">All</option>
     <option value="Car">Car</option>
     <option value="Bike">Bike</option>
   </select>
 
   <label>Reference Time</label>
-  <input
-    type="time"
-    formControlName="referenceTime"
-    [formGroup]="filterForm"
-    (change)="refresh()"
-  />
-</div>
+  <input type="time" formControlName="referenceTime" (change)="refresh()" />
+</form>
 
 <ul class="ride-list">
   <li
